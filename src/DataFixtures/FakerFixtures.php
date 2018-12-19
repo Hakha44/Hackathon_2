@@ -8,8 +8,34 @@
 
 namespace App\DataFixtures;
 
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Faker;
+use App\Entity\Event;
+use App\Entity\Subservice;
 
-class FakerFixtures
+
+class FakerFixtures extends Fixture implements DependentFixtureInterface
 {
+    public function load(ObjectManager $manager)
+    {
+        $faker = Faker\Factory::create('fr_FR');
 
+        for ($a=0; $a < 5; $a++) {
+            for ($i = 0; $i < 10; $i++) {
+                $event = new Event();
+                $event->setName($faker->sentence);
+                $event->setDate($faker->date);
+                $event->setSubservice($this->getReference('subservice'.$a));
+                $manager->persist($event);
+            }
+        }
+        $manager->flush();
+
+    }
+    public function getDependencies()
+    {
+        return [SubserviceFixtures::class];
+    }
 }
