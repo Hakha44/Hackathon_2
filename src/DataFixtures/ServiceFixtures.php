@@ -20,6 +20,7 @@ class ServiceFixtures extends Fixture
             $service = new Service();
             $service->setName(self::CONST_SERVICE[$i]);
             $manager->persist($service);
+            $this->addReference('service_' . $i, $service);
         }
 
         $manager->flush();
