@@ -21,12 +21,15 @@ class SubserviceFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager)
     {
+        $count= 0;
         for ($a=0; $a <3; $a ++) {
             for ($i = 0; $i < 6; $i++) {
                 $subservice = new Subservice();
                 $subservice->setName(self::CONST_SUBSERVICE[$i]);
                 $manager->persist($subservice);
                 $subservice->setService($this->getReference('service_'.$a));
+                $this->addReference('subservice_' . $count, $subservice);
+                $count++;
             }
         }
 

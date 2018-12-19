@@ -26,9 +26,9 @@ class FakerFixtures extends Fixture implements DependentFixtureInterface
             for ($i = 0; $i < 10; $i++) {
                 $event = new Event();
                 $event->setName($faker->sentence);
-                $event->setDate($faker->date);
-                $event->setSubservice($this->getReference('subservice'.$a));
+                $event->setDate($faker->dateTimeBetween('-1 month', '+1 years'));
                 $manager->persist($event);
+                $event->setSubservice($this->getReference('subservice_'.$a));
             }
         }
         $manager->flush();
