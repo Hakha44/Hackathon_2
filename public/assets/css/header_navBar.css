@@ -1,0 +1,21 @@
+body {
+    font-family: 'Lobster', cursive;
+}
+
+header {
+    background-image: url("../images/noel.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 400px;
+}
+.logo {
+    height: 50px;
+}
+
+.LabO {
+    text-align: center;
+    height: 300px;
+    opacity: 0.5;
+    padding-top: 5rem;
+}
