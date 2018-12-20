@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Service;
 use App\Entity\Subservice;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +15,9 @@ class SubserviceType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('service')
+            ->add('service',EntityType::class, array(
+        'class' => Service::class,
+        'choice_label' => 'name',))
         ;
     }
 

@@ -8,16 +8,19 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
+                {#<th>Id</th>#}
+                <th>Nom</th>
+                <th>Service</th>
+                <th>Actions</th>
+
             </tr>
         </thead>
         <tbody>
         {% for subservice in subservices %}
             <tr>
-                <td>{{ subservice.id }}</td>
+                {#<td>{{ subservice.id }}</td>#}
                 <td>{{ subservice.name }}</td>
+                <td>{{ subservice.service.name }}</td>
                 <td>
                     <a href="{{ path('subservice_show', {'id': subservice.id}) }}" class="button">show</a>
                     <a href="{{ path('subservice_edit', {'id': subservice.id}) }}" class="button">edit</a>

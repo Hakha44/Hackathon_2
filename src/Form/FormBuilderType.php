@@ -2,32 +2,27 @@
 
 namespace App\Form;
 
-use App\Entity\Event;
-use App\Entity\Subservice;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\FormBuilder;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EventType extends AbstractType
+class FormBuilderType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name')
-            ->add('date')
-            ->add('subservice',EntityType::class, array(
-                'class' => Subservice::class,
-                'choice_label' => 'fullName',
-
-    ));
-
+            ->add('headerForm')
+            ->add('paragraph')
+            ->add('formbuilderhtml', TextareaType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Event::class,
+            'data_class' => FormBuilder::class,
         ]);
     }
 }
