@@ -3,7 +3,7 @@
 {% block title %}Service index{% endblock %}
 
 {% block body %}
-    <div class="row justify-content-center">
+    <div class="row">
         <h1>Service</h1>
     </div>
     <div class="row justify-content-center">
@@ -21,12 +21,13 @@
         </thead>
         <tbody>
         {% for service in services %}
-            <tr>
+            <tr class="text-center">
                 <td>{{ service.id }}</td>
                 <td>{{ service.name }}</td>
-                <td>
-                    <a href="{{ path('service_show', {'id': service.id}) }}" class="button">show</a>
-                    <a href="{{ path('service_edit', {'id': service.id}) }}" class="button">edit</a>
+                <td class="btn-group">
+                    <a href="{{ path('service_show', {'id': service.id}) }}" class="button"><i class="fas fa-list"></i></a>
+                    <a href="{{ path('service_edit', {'id': service.id}) }}" class="button"><i class="fas fa-user-edit"></i></a>
+                    <a href="{{ path('service_delete', {'id': service.id}) }}" class="button"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         {% else %}
