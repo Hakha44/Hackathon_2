@@ -2,10 +2,24 @@
     font-family: christmas;
     src: url("../MerryChristmasFlake.ttf")format("truetype");
 }
+
 h1 {
     font-family: christmas;
     font-size: 50pt;
 }
+.nav-link {
+    font-family: christmas;
+    font-size: 24pt;
+    letter-spacing: 2px;
+}
 th {
+    font-size: 16pt;
+}
+
+td {
     font-size: 14pt;
+}
+
+select.form-control:not([size]):not([multiple]) {
+   height : auto;
 }
