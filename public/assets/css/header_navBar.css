@@ -3,11 +3,12 @@ body {
 }
 
 header {
-    background-image: url("../images/noel.png");
-    background-size: contain;
+    background-image: url("../images/noel.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
     height: 450px;
+    box-shadow: 0 0 4em #34393e;
 }
 .logo {
     height: 50px;
@@ -17,4 +18,5 @@ header {
     text-align: center;
     height: 300px;
     padding-top: 5rem;
+    opacity: 0.5;
 }
