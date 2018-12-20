@@ -10,9 +10,11 @@ namespace App\DataFixtures;
 
 use App\Entity\Participant;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker;
-class ParticipantFixtures extends Fixture
+
+class ParticipantFixtures extends Fixture implements DependentFixtureInterface
 {
     const ENTREPRISENAME = [
         'ALTER_EGO',
@@ -55,8 +57,15 @@ class ParticipantFixtures extends Fixture
             $participant->setPhoneNumber($phoneNumber);
             $participant->setFunction($function);
             $participant->setQuality($quality);
+
             $manager->persist($participant);
+            $participant->setEvent($this->getReference('event_' . rand(0,10)));
         }
         $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return [FakerFixtures::class];
     }
 }
