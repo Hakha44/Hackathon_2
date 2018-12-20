@@ -21,7 +21,7 @@ class FakerFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create('fr_FR');
-
+        $count = 0;
         for ($a = 0; $a < 5; $a++) {
             for ($i = 0; $i < 10; $i++) {
                 $event = new Event();
@@ -29,6 +29,8 @@ class FakerFixtures extends Fixture implements DependentFixtureInterface
                 $event->setDate($faker->dateTimeBetween('-1 month', '+1 years'));
                 $manager->persist($event);
                 $event->setSubservice($this->getReference('subservice_' . $a));
+                $this->addReference('event_' . $count, $event);
+                $count++;
             }
         }
         $manager->flush();
