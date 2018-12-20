@@ -7,7 +7,7 @@ header {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right;
-    height: 400px;
+    height: 450px;
 }
 .logo {
     height: 50px;
@@ -16,5 +16,6 @@ header {
 .LabO {
     text-align: center;
     height: 300px;
-    padding-top: 5rem;
+    padding-top: 7rem;
+
 }
