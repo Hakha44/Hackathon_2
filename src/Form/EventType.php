@@ -17,8 +17,8 @@ class EventType extends AbstractType
             ->add('name')
             ->add('date')
             ->add('subservice',EntityType::class, array(
-        'class' => Subservice::class,
-        'choice_label' => 'name',
+                'class' => Subservice::class,
+                'choice_label' => 'fullName',
 
     ));
 
