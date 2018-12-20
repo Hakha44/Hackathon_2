@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header mb-5">
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container"><a href="#" class="navbar-brand"> <img class= "logo" src="/assets/images/logo.png" alt="Oh Terroir" ></a>
             <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -8,13 +8,13 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="/" class="nav-link">Accueil</a></li>
 
-                    <li class="nav-item"><a href="/participant" class="nav-link">participant</a></li>
+                    <li class="nav-item"><a href="{{ path('participant_index') }}" class="nav-link">participant</a></li>
 
-                    <li class="nav-item"><a href="/subservice" class="nav-link">sous service</a></li>
+                    <li class="nav-item"><a href="{{ path('subservice_index') }}" class="nav-link">sous service</a></li>
 
-                    <li class="nav-item"><a href="/service" class="nav-link">service</a></li>
+                    <li class="nav-item"><a href="{{ path('service_index') }}" class="nav-link">service</a></li>
 
-                    <li class="nav-item"><a href="/form" class="nav-link">form</a></li>
+                    <li class="nav-item"><a href="{{ path('form_builder_index') }}" class="nav-link">form</a></li>
                 </ul>
             </div>
         </div>
