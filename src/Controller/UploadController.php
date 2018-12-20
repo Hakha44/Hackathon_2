@@ -22,7 +22,6 @@ class UploadController extends AbstractController
         $formAddFormatEvent->handleRequest($request);
         if ($formAddFormatEvent->isSubmitted() && $formAddFormatEvent->isValid()) {
             $dataset = $formAddFormatEvent->getData();
-            $csvParticipants->setName($dataset['name']);
             $csvParticipants->setPath($dataset['csvFile']->getPathName());
 //            try {
             $csvParticipants->validate();
@@ -37,14 +36,15 @@ class UploadController extends AbstractController
 //                    $csvException->getMessage()
 //                );
 //            }
-            return $this->redirectToRoute('subservice');
+            return $this->redirectToRoute('participant_index');
         }
         // FormatEvents List
         $participants = $this->getDoctrine()
             ->getRepository(Participant::class);
-//            ->findBy([], ['numberOfPlayers' => 'ASC']);
+
         return $this->render('upload/index.html.twig', [
             'participants' => $participants,
+            'form' => $formAddFormatEvent->createView(),
             'controller_name' => 'UploadController',
         ]);
     }
