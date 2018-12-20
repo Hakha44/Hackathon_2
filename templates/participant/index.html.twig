@@ -32,7 +32,7 @@
                 <td>{{ participant.phoneNumber }}</td>
                 <td>
                     <label class="switch">
-                        <input type="checkbox" {{ participant.present ? "" : "checked" }}>
+                        <input class = "presence" name ="presence" type="checkbox" value="{{ participant.id }}" checked = "{{ participant.present ? "checked" : "" }}">
                         <span class="slider round"></span>
                     </label>
                 <td>{{ participant.quality ? 'Yes' : 'No' }}</td>
@@ -50,4 +50,8 @@
         </tbody>
     </table>
 
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+<script src="../assets/js/asynchrone.js"></script>
 {% endblock %}
