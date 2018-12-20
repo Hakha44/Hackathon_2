@@ -24,6 +24,7 @@
                 <td>{{ event.name }}</td>
                 <td>{{ event.date ? event.date|date('d-m-Y') : '' }}</td>
                 <td>
+                    <a href="{{ path('event_send', {'id': event.id}) }}"><i class="fas fa-envelope"></i></a>
                     <a href="{{ path('event_show', {'id': event.id}) }}"><i class="fas fa-list"></i></a>
                     <a href="{{ path('event_edit', {'id': event.id}) }}"><i class="fas fa-user-edit"></i></a>
                     <a href="{{ path('event_delete', {'id': event.id}) }}"><i class="fas fa-trash-alt"></i></a>

@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Entity\FormBuilder;
 use App\Form\EventType;
+use App\Form\SendEmailType;
 use App\Repository\EventRepository;
+use App\Repository\FormBuilderRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -87,4 +90,28 @@ class EventController extends AbstractController
 
         return $this->redirectToRoute('event_index');
     }
+
+    /**
+     * @Route("/{id}/send", name="event_send", methods={"POST"})
+     */
+    public function send(Event $event, Request $request): Response
+    {
+
+        $form = $this->createForm(SendEmailType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            //$generate_url =
+            var_dump($form->getData());
+            //$this->getDoctrine()->getManager()->flush();
+
+            //return $this->redirectToRoute('event_index', ['id' => $event->getId()]);
+        }
+
+        return $this->render('event/send.html.twig', [
+            'event' => $event,
+            'form' => $form->createView(),
+        ]);
+    }
+
 }
