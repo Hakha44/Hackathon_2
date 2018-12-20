@@ -3,19 +3,23 @@ body {
 }
 
 header {
-    background-image: url("../images/noel.png");
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
     height: 450px;
+    box-shadow: 0 0 4em #34393e;
+    text-shadow:0 4px 0 black, 0 -4px 0 black;
 }
+
 .logo {
     height: 50px;
 }
 
 .LabO {
     text-align: center;
-    height: 300px;
-    padding-top: 7rem;
+    height: 225px;
+    margin-top: 150px;
+    margin-left: 35%;
+    opacity: 0.45;
 
 }
