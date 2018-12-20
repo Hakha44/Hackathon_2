@@ -32,7 +32,8 @@
                 <td>{{ participant.phoneNumber }}</td>
                 <td>
                     <label class="switch">
-                        <input class = "presence" name ="presence" type="checkbox" value="{{ participant.id }}" checked = "{{ participant.present ? "checked" : "" }}">
+                        <input class = "presence" name ="presence" type="checkbox" value="{{ participant.id }}"{% if participant.present == 1 %} checked = "checked" {% else %} checked = ""{% endif %}>
+
                         <span class="slider round"></span>
                     </label>
                 <td>{{ participant.quality ? 'Yes' : 'No' }}</td>
