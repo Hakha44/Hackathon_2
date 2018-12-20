@@ -3,9 +3,12 @@
 {% block title %}Participant index{% endblock %}
 
 {% block body %}
-    <h1> Accueil Participant</h1>
+    <div class="row">
+        <h1> Accueil Participant</h1>
+    </div>
     <div class="row justify-content-center">
-        <p><a href="{{ path('participant_new') }}" class="buttonCreate"><i class="fas fa-marker"></i>Créer un participant</a></p>
+        <p><a href="{{ path('participant_new') }}" class="buttonCreate"><i class="fas fa-marker"></i>Créer un
+                participant</a></p>
     </div>
 
     {% include 'upload/index.html.twig' %}
@@ -14,7 +17,6 @@
         <tr>
             <th>Nom de l'entreprise</th>
             <th>Nom</th>
-            <th>Prénom</th>
             <th>Numéro de Téléphone</th>
             <th>Présent</th>
             <th>Partenaire</th>
@@ -25,8 +27,7 @@
         {% for participant in participants %}
             <tr class="text-center">
                 <td>{{ participant.entrepriseName }}</td>
-                <td>{{ participant.name }}</td>
-                <td>{{ participant.firstname }}</td>
+                <td>{{ participant.name }} {{ participant.firstname }}</td>
                 <td>{{ participant.phoneNumber }}</td>
                 <td>
                     <label class="switch">
