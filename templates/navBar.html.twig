@@ -1,5 +1,7 @@
 <header class="header mb-5 container-fluid">
     <nav class="navbar navbar-expand-lg fixed-top ">
+        <div class="container"><a href="#" class="navbar-brand"> <img class="logo" src="/assets/images/logo.png"
+                                                                      alt="Lab'O"></a>
         <div class="container">
             <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent"
@@ -8,13 +10,12 @@
                 <i class="fa fa-align-justify"></i></button>
             <div id="navbarSupportedContent" class="collapse navbar-collapse justify-content-center">
                 <ul class="navbar-nav ml-auto">
-
-                    <li class="nav-item"><a href="{{ path('service_index') }}" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="{{ path('subservice_index') }}" class="nav-link">Sous services</a></li>
-                    <li class="nav-item"><a href="{{ path('event_index') }}" class="nav-link">Évènements</a></li>
-                    <li class="nav-item"><a href="{{ path('participant_index') }}" class="nav-link">Participants</a>
+                    <li class="nav-item"><a href="{{ path('service_index') }}" class="nav-link"><strong>Service </strong></a></li>
+                    <li class="nav-item"><a href="{{ path('subservice_index') }}" class="nav-link"><strong>Sous service</strong></a></li>
+                    <li class="nav-item"><a href="{{ path('event_index') }}" class="nav-link"><strong>Evenements</strong></a></li>
+                    <li class="nav-item"><a href="{{ path('participant_index') }}" class="nav-link"><strong>Participants</strong></a>
                     </li>
-                    <li class="nav-item"><a href="{{ path('form_builder_index') }}" class="nav-link">Formulaires</a></li>
+                    <li class="nav-item"><a href="{{ path('form_builder_index') }}" class="nav-link"><strong>Formulaire</strong></a></li>
                 </ul>
             </div>
         </div>

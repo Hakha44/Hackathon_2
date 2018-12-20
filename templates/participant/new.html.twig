@@ -5,7 +5,12 @@
 {% block body %}
     <h1>Créer un nouveau participant</h1>
 
+    <div class="row">
+        <div class="col text-right">
+            <a class="btn button" href="{{ path('participant_index') }}">Retour</a>
+        </div>
+    </div>
+
     {{ include('participant/_form.html.twig') }}
 
-    <a href="{{ path('participant_index') }}" class="button">Retour</a>
 {% endblock %}
