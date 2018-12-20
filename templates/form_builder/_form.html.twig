@@ -1,0 +1,14 @@
+{{ form_start(form, {'attr': {'id': 'form_builder'}}) }}
+    {{ form_row(form.name) }}
+
+    {{ form_row(form.headerForm) }}
+
+    {{ form_row(form.paragraph) }}
+
+<div style="display: none;">
+    {{ form_row(form.formbuilderhtml) }}
+</div>
+
+<div id="formeo-editor"></div>
+
+{{ form_end(form) }}
