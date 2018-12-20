@@ -3,11 +3,18 @@
 {% block title %}Liste des formulaires existants{% endblock %}
 
 {% block body %}
-    <h1>Liste des formulaires existants</h1>
-    <a class="btn btn-primary mb-5" href="{{ path('form_builder_new') }}">Créer un nouveau formulaire</a>
 
-    <table class="table">
-        <thead>
+    <div class="row">
+        <h1>Liste des formulaires existants</h1>
+    </div>
+    <hr class="style" />
+    <div class="row justify-content-center">
+        <a class="btn buttonCreate" href="{{ path('form_builder_new') }}">Créer un nouveau formulaire</a>
+    </div>
+
+    <div class="container">
+        <table class="table">
+            <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -15,23 +22,25 @@
                 <th>Paragraph</th>
                 <th>actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for form_builder in form_builders %}
-            <tr>
-                <td>{{ form_builder.id }}</td>
-                <td>{{ form_builder.name }}</td>
-                <td>{{ form_builder.headerForm }}</td>
-                <td>{{ form_builder.paragraph }}</td>
-                <td>
-                    <a href="{{ path('form_builder_show', {'id': form_builder.id}) }}">Voir</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for form_builder in form_builders %}
+                <tr class="text-center">
+                    <td>{{ form_builder.id }}</td>
+                    <td>{{ form_builder.name }}</td>
+                    <td>{{ form_builder.headerForm }}</td>
+                    <td>{{ form_builder.paragraph }}</td>
+                    <td class="btn-group">
+                        <a href="{{ path('form_builder_show', {'id': form_builder.id}) }}" class="button"><i
+                                    class="fas fa-list"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

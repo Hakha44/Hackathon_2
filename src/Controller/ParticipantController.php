@@ -6,6 +6,7 @@ use App\Entity\Participant;
 use App\Form\ParticipantType;
 use App\Form\UploadType;
 use App\Repository\ParticipantRepository;
+use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -94,5 +95,34 @@ class ParticipantController extends AbstractController
         }
 
         return $this->redirectToRoute('participant_index');
+    }
+
+    /**
+     * @Route("/{id}/{presence}", methods={"GET","POST"})
+     * @param int $id
+     * @param  $presence
+     * @return Response
+     */
+    public function udpdatePresence (int $id,  $presence) : Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $participant = $entityManager->getRepository(Participant::class)->find($id);
+
+        if (!$participant) {
+            throw $this->createNotFoundException(
+                'No participant found for id '.$id
+            );
+        }
+
+        $participant->setPresent($presence);
+        $entityManager->flush();
+
+        if ($presence == 0){
+            $message = "Ce participant est bien désinscrit !";
+        } else {
+            $message = "Ce participant est bien inscrit !";
+        }
+
+        return $this->json($message);
     }
 }
