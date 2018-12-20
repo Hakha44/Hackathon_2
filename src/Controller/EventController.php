@@ -3,12 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Event;
-use App\Entity\Sondage;
 use App\Form\EventType;
-use App\Form\SendEmailType;
 use App\Repository\EventRepository;
-use App\Repository\SondageRepository;
-use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

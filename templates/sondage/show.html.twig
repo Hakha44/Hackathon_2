@@ -4,10 +4,10 @@
 
 {% block body %}
     <h1>Sondage</h1>
-
+    <form method="post" action="">
     <table class="table">
         <tbody>
-            <tr>
+            <!--<tr>
                 <th>Id</th>
                 <td>{{ sondage.id }}</td>
             </tr>
@@ -22,13 +22,26 @@
             <tr>
                 <th>DateEnvoi</th>
                 <td>{{ sondage.dateEnvoi ? sondage.dateEnvoi|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>-->
+            <tr>
+                <th>Id</th>
+                <td>{{ formulaire.headerForm }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ formulaire.paragraph }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ formulaire.formbuilderhtml|raw }}</td>
             </tr>
         </tbody>
     </table>
+    </form>
 
-    <a href="{{ path('sondage_index') }}">back to list</a>
+    {#<a href="{{ path('sondage_index') }}">back to list</a>#}
 
-    <a href="{{ path('sondage_edit', {'id': sondage.id}) }}">edit</a>
+    {#<a href="{{ path('sondage_edit', {'id': sondage.id}) }}">edit</a>#}
 
-    {{ include('sondage/_delete_form.html.twig') }}
+    {#{{ include('sondage/_delete_form.html.twig') }}#}
 {% endblock %}
