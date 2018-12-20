@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Subservice{% endblock %}
+{% block title %}Nouveau sous-service{% endblock %}
 
 {% block body %}
-    <h1>Create new Subservice</h1>
+    <h1>Créer un sous-service</h1>
 
     {{ include('subservice/_form.html.twig') }}
 
     <div class="centerer">
 
-        <a href="{{ path('subservice_index') }}" class="button">back to list</a>
+        <a href="{{ path('subservice_index') }}" class="button">Retour</a>
 
     </div>
 {% endblock %}
