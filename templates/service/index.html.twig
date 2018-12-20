@@ -3,28 +3,32 @@
 {% block title %}Service index{% endblock %}
 
 {% block body %}
-    <h1>Service index</h1>
-
+    <div class="row">
+        <h1>Service</h1>
+    </div>
+    <hr class="style" />
     <div class="row justify-content-center">
-        <p><a href="{{ path('subservice_new') }}" class="buttonCreate"><i class="fas fa-marker"></i>Ajouter un service</a></p>
+        <p><a href="{{ path('subservice_new') }}" class="buttonCreate"><i class="fas fa-marker"></i>Ajouter un
+                service</a></p>
     </div>
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            {#<th>Id</th>#}
+            <th>Nom</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for service in services %}
-            <tr>
-                <td>{{ service.id }}</td>
+            <tr class="text-center">
+                {#<td>{{ service.id }}</td>#}
                 <td>{{ service.name }}</td>
-                <td>
-                    <a href="{{ path('service_show', {'id': service.id}) }}" class="button">show</a>
-                    <a href="{{ path('service_edit', {'id': service.id}) }}" class="button">edit</a>
+                <td class="btn-group">
+                    <a href="{{ path('service_show', {'id': service.id}) }}" class="button"><i class="fas fa-list"></i></a>
+                    <a href="{{ path('service_edit', {'id': service.id}) }}" class="button"><i class="fas fa-user-edit"></i></a>
+                    <a href="{{ path('service_delete', {'id': service.id}) }}" class="button"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         {% else %}

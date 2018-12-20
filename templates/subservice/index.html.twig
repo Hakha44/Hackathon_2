@@ -1,38 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Subservice index{% endblock %}
+{% block title %}Sous-service{% endblock %}
 
 {% block body %}
-    <h1>Subservice index</h1>
-
+    <div class="row">
+        <h1>Sous-service</h1>
+    </div>
+    <hr class="style" />
     <div class="row justify-content-center">
-        <p><a href="{{ path('subservice_new') }}" class="buttonCreate"><i class="fas fa-marker"></i>Ajouter un sous service</a></p>
+        <p><a href="{{ path('subservice_new') }}" class="buttonCreate"><i class="fas fa-marker"></i>Ajouter un sous
+                service</a></p>
     </div>
 
     <table class="table">
         <thead>
-            <tr>
-                {#<th>Id</th>#}
-                <th>Nom</th>
-                <th>Service</th>
-                <th>Actions</th>
+        <tr>
+            {#<th>Id</th>#}
+            <th>Nom</th>
+            <th>Service</th>
+            <th>Actions</th>
 
-            </tr>
+        </tr>
         </thead>
         <tbody>
         {% for subservice in subservices %}
-            <tr>
+            <tr class="text-center">
                 {#<td>{{ subservice.id }}</td>#}
                 <td>{{ subservice.name }}</td>
                 <td>{{ subservice.service.name }}</td>
-                <td>
-                    <a href="{{ path('subservice_show', {'id': subservice.id}) }}" class="button">show</a>
-                    <a href="{{ path('subservice_edit', {'id': subservice.id}) }}" class="button">edit</a>
+                <td class="btn-group">
+                    <a href="{{ path('subservice_show', {'id': subservice.id}) }}" class="button"><i class="fas fa-list"></i></a>
+                    <a href="{{ path('subservice_edit', {'id': subservice.id}) }}" class="button"><i class="fas fa-user-edit"></i></a>
+                    <a href="{{ path('subservice_delete', {'id': subservice.id}) }}" class="button"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucun sous-service</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Subservice{% endblock %}
+{% block title %}Edition Sous-service{% endblock %}
 
 {% block body %}
-    <h1>Edit Subservice</h1>
+    <h1>Editer un Sous-service</h1>
 
-    {{ include('subservice/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('subservice/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('subservice_index') }}">back to list</a>
+    <a href="{{ path('subservice_index') }}" class="button">Retour</a>
 
     {{ include('subservice/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,6 +1,8 @@
-{{ form_start(form) }}
-    <div class="row mx-0">
+{{ form_start(form , {'action': path('upload'), 'method': 'POST'}) }}
+    {#<div class="row mx-0">#}
             {{ form_widget(form) }}
-            <button class="btn">{{ button_label|default('Importer') }}</button>
-    </div>
+<div class="row justify-content-end">
+    <button class="btn buttonCreate"><i class="fas fa-file-download"></i> {{ button_label|default('Importer') }}</button>
+</div>
+
 {{ form_end(form) }}

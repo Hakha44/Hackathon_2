@@ -9,6 +9,8 @@
 namespace App\Form;
 
 
+use App\Entity\Event;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type as Type;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,7 +22,14 @@ class UploadType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-
+            ->add(
+                'event',
+                EntityType::class,
+                [
+                    'class' => Event::class,
+                    'choice_label' => 'name',
+                ]
+            )
             ->add(
                 'csvFile',
                 Type\FileType::class,
@@ -41,5 +50,6 @@ class UploadType extends AbstractType
             // Configure your form options here
         ]);
     }
+
 
 }
