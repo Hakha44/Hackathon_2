@@ -55,6 +55,12 @@ class Participant
      * @ORM\Column(type="boolean")
      */
     private $present;
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="participants")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $event;
+
 
     public function getId(): ?int
     {
@@ -145,6 +151,7 @@ class Participant
         return $this;
     }
 
+
     public function getPresent(): ?bool
     {
         return $this->present;
@@ -153,6 +160,15 @@ class Participant
     public function setPresent(bool $present): self
     {
         $this->present = $present;
+      
+    public function getEvent(): ?Event
+    {
+        return $this->event;
+    }
+
+    public function setEvent(?Event $event): self
+    {
+        $this->event = $event;
 
         return $this;
     }
