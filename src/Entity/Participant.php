@@ -51,6 +51,11 @@ class Participant
      */
     private $function;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $present;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -136,6 +141,18 @@ class Participant
     public function setFunction(string $function): self
     {
         $this->function = $function;
+
+        return $this;
+    }
+
+    public function getPresent(): ?bool
+    {
+        return $this->present;
+    }
+
+    public function setPresent(bool $present): self
+    {
+        $this->present = $present;
 
         return $this;
     }
