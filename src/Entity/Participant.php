@@ -160,7 +160,7 @@ class Participant
     public function setPresent(bool $present): self
     {
         $this->present = $present;
-
+      
         return $this;
     }
     public function getEvent(): ?Event
