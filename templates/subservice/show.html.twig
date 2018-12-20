@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Subservice{% endblock %}
+{% block title %}Sous-service{% endblock %}
 
 {% block body %}
-    <h1>Subservice</h1>
+    <h1>Sous-service</h1>
 
     <table class="table">
         <tbody>
@@ -25,7 +25,7 @@
 
     <div class="centerer">
 
-        <a href="{{ path('subservice_index') }}" class="button">back to list</a>
+        <a href="{{ path('subservice_index') }}" class="button">Retour</a>
 
         <a href="{{ path('subservice_edit', {'id': subservice.id}) }}" class="button">edit</a>
 
