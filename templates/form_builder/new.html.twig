@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" crossorigin="anonymous">
+{% endblock %}
+
+{% block title %}Création nouveau formulaire{% endblock %}
+
+{% block body %}
+    <h1 class="mb-5">Création nouveau formulaire</h1>
+    <div class="row">
+        <div class="col text-right">
+            <a class="btn btn-info" href="{{ path('form_builder_index') }}">Retour</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{ include('form_builder/_form.html.twig') }}
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col">
+            <section id="main_content" class="inner">
+                <form class="build-form clearfix"></form>
+                <div class="render-form d-none"></div>
+            </section>
+            <div class="container my-2 render-btn-wrap">
+                <button id="renderForm" class="btn btn-default">Valider</button>
+                <button id="reloadBtn" class="btn btn-default">Reset</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/formeo.min.js') }}"></script>
+    <script src="{{ asset('assets/js/demo.js') }}"></script>
+{% endblock %}

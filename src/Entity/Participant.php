@@ -46,6 +46,22 @@ class Participant
      */
     private $quality;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $function;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $present;
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="participants")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $event;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +135,40 @@ class Participant
     public function setQuality(bool $quality): self
     {
         $this->quality = $quality;
+
+        return $this;
+    }
+
+    public function getFunction(): ?string
+    {
+        return $this->function;
+    }
+
+    public function setFunction(string $function): self
+    {
+        $this->function = $function;
+
+        return $this;
+    }
+
+
+    public function getPresent(): ?bool
+    {
+        return $this->present;
+    }
+
+    public function setPresent(bool $present): self
+    {
+        $this->present = $present;
+      
+    public function getEvent(): ?Event
+    {
+        return $this->event;
+    }
+
+    public function setEvent(?Event $event): self
+    {
+        $this->event = $event;
 
         return $this;
     }

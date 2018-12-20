@@ -98,4 +98,9 @@ class Subservice
 
         return $this;
     }
+
+    public function getFullName(): string
+    {
+        return $this->getService()->getName() . ' > ' . $this->getName();
+    }
 }
