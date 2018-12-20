@@ -23,9 +23,11 @@ class ParticipantController extends AbstractController
     {
         $form = $this->createForm(UploadType::class);
 
+
         return $this->render('participant/index.html.twig', [
             'participants' => $participantRepository->findAll(),
             'form'=> $form->createView(),
+//            'form2'=> $form->createView(),
             ]);
     }
 
