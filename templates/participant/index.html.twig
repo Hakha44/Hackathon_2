@@ -24,7 +24,7 @@
         </thead>
         <tbody>
         {% for participant in participants %}
-            <tr>
+            <tr class="text-center">
                 <td>{{ participant.entrepriseName }}</td>
                 <td>{{ participant.name }}</td>
                 <td>{{ participant.firstname }}</td>
@@ -36,9 +36,10 @@
                         <span class="slider round"></span>
                     </label>
                 <td>{{ participant.quality ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('participant_show', {'id': participant.id}) }}" class="button">Détail</a>
-                    <a href="{{ path('participant_edit', {'id': participant.id}) }}" class="button">Éditer</a>
+                <td class="btn-group">
+                    <a href="{{ path('participant_show', {'id': participant.id}) }}" class="button"><i class="fas fa-list"></i></a>
+                    <a href="{{ path('participant_edit', {'id': participant.id}) }}" class="button"><i class="fas fa-user-edit"></i></a>
+                    <a href="{{ path('participant_delete', {'id': participant.id}) }}" class="button"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         {% else %}

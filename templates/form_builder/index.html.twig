@@ -8,23 +8,23 @@
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>HeaderForm</th>
-                <th>Paragraph</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>HeaderForm</th>
+            <th>Paragraph</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for form_builder in form_builders %}
-            <tr>
+            <tr class="text-center">
                 <td>{{ form_builder.id }}</td>
                 <td>{{ form_builder.name }}</td>
                 <td>{{ form_builder.headerForm }}</td>
                 <td>{{ form_builder.paragraph }}</td>
-                <td>
-                    <a href="{{ path('form_builder_show', {'id': form_builder.id}) }}">Voir</a>
+                <td class="btn-group">
+                    <a href="{{ path('form_builder_show', {'id': form_builder.id}) }}"><i class="fas fa-list"></i></a>
                 </td>
             </tr>
         {% else %}

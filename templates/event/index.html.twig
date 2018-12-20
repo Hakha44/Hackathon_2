@@ -3,7 +3,7 @@
 {% block title %}Liste des Evènements{% endblock %}
 
 {% block body %}
-<div class="row justify-content-center">
+<div class="row">
     <h1>Liste des Evènements</h1>
     </div>
 <div class="row justify-content-center">
@@ -23,10 +23,10 @@
             <tr class="text-center">
                 <td>{{ event.name }}</td>
                 <td>{{ event.date ? event.date|date('d-m-Y') : '' }}</td>
-                <td>
-                    <a href="{{ path('event_show', {'id': event.id}) }}"><i class="fas fa-list"></i></a>
-                    <a href="{{ path('event_edit', {'id': event.id}) }}"><i class="fas fa-user-edit"></i></a>
-                    <a href="{{ path('event_delete', {'id': event.id}) }}"><i class="fas fa-trash-alt"></i></a>
+                <td class="btn-group">
+                    <a href="{{ path('event_show', {'id': event.id}) }}" class="button"><i class="fas fa-list"></i></a>
+                    <a href="{{ path('event_edit', {'id': event.id}) }}" class="button"><i class="fas fa-user-edit"></i></a>
+                    <a href="{{ path('event_delete', {'id': event.id}) }}" class="button"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         {% else %}
