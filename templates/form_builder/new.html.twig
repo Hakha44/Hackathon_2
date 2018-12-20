@@ -2,7 +2,8 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+          crossorigin="anonymous">
 {% endblock %}
 
 {% block title %}Création nouveau formulaire{% endblock %}
@@ -11,7 +12,7 @@
     <h1 class="mb-5">Création nouveau formulaire</h1>
     <div class="row">
         <div class="col text-right">
-            <a class="btn btn-info" href="{{ path('form_builder_index') }}">Retour</a>
+            <a class="btn button" href="{{ path('form_builder_index') }}">Retour</a>
         </div>
     </div>
     <div class="row">
@@ -25,10 +26,14 @@
                 <form class="build-form clearfix"></form>
                 <div class="render-form d-none"></div>
             </section>
-            <div class="container my-2 render-btn-wrap">
-                <button id="renderForm" class="btn btn-default">Valider</button>
-                <button id="reloadBtn" class="btn btn-default">Reset</button>
-            </div>
+        </div>
+    </div>
+    <div class="row my-2 render-btn-wrap">
+        <div class="col text-left">
+            <button id="reloadBtn" class="btn button">Reset</button>
+        </div>
+        <div class=" col text-right">
+            <button id="renderForm" class="btn buttonCreate">Valider</button>
         </div>
     </div>
 {% endblock %}
