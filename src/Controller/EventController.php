@@ -3,9 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Entity\Sondage;
 use App\Form\EventType;
 use App\Form\SendEmailType;
 use App\Repository\EventRepository;
+use App\Repository\SondageRepository;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -87,71 +90,6 @@ class EventController extends AbstractController
         }
 
         return $this->redirectToRoute('event_index');
-    }
-
-    /**
-     * @Route("/{id}/send", name="event_send", methods={"GET","POST"})
-     * @param Event $event
-     * @param Request $request
-     * @param \Swift_Mailer $mailer
-     * @return Response
-     */
-    public function send(Event $event, Request $request, \Swift_Mailer $mailer): Response
-    {
-
-        $form = $this->createForm(SendEmailType::class);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Récupération des participants qui ont participés
-            $participants = $event->getParticipants();
-            foreach ($participants as $participant) {
-                if ($participant->getPresent()) {
-                    $generate_url = uniqid();
-                    $generate_url = str_split($generate_url, 7);
-                    $generate_url = $generate_url[0]
-                    . 'A' . $event->getId()
-                    . 'B' . $participant->getId()
-                    . 'C' . $form->getData()['formbuilder']->getId()
-                    . $generate_url[1];
-
-                    $message = (new \Swift_Message('Votre avis suite à : ' . $event->getName()))
-                        ->setFrom('matchmaking.wcs@gmail.com')
-                        ->setTo($participant->getEmail())
-                        ->setBody(
-                            $this->renderView(
-                            // templates/emails/registration.html.twig
-                                'emails/sondage.html.twig',
-                                ['name' => $participant->getName(), 'url' => $generate_url]
-                            ),
-                            'text/html'
-                        )
-                    ;
-
-                    $mailer->send($message);
-
-                    return $this->redirectToRoute('event_index');
-                }
-
-            }
-
-
-
-
-
-//
-//            var_dump($generate_url);
-
-
-            //$this->getDoctrine()->getManager()->flush();
-
-            //return $this->redirectToRoute('event_index', ['id' => $event->getId()]);
-        }
-
-        return $this->render('event/send.html.twig', [
-            'event' => $event,
-            'form' => $form->createView(),
-        ]);
     }
 
 }

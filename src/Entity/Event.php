@@ -40,7 +40,7 @@ class Event
     private $participants;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Sondage", mappedBy="event")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Sondage", mappedBy="event", cascade={"persist"})
      */
     private $sondages;
 

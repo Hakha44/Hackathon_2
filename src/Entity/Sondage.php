@@ -19,12 +19,12 @@ class Sondage
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Event", inversedBy="sondages")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="sondages")
      */
     private $event;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Participant", inversedBy="sondages")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Participant", inversedBy="sondages")
      */
     private $participant;
 
@@ -49,9 +49,14 @@ class Sondage
      */
     private $dateEnvoi;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $token;
+
     public function __construct()
     {
-        $this->event = new ArrayCollection();
+        //$this->event = new ArrayCollection();
         $this->participant = new ArrayCollection();
     }
 
@@ -63,7 +68,7 @@ class Sondage
     /**
      * @return Collection|Event[]
      */
-    public function getEvent(): Collection
+    /*public function getEvent(): Collection
     {
         return $this->event;
     }
@@ -84,7 +89,7 @@ class Sondage
         }
 
         return $this;
-    }
+    }*/
 
     /**
      * @return Collection|Participant[]
@@ -156,6 +161,32 @@ class Sondage
     public function setDateEnvoi(?\DateTimeInterface $dateEnvoi): self
     {
         $this->dateEnvoi = $dateEnvoi;
+
+        return $this;
+    }
+
+    public function setEvent(?Event $event): self
+    {
+        $this->event = $event;
+
+        return $this;
+    }
+
+    public function setParticipant(?Participant $participant): self
+    {
+        $this->participant = $participant;
+
+        return $this;
+    }
+
+    public function getToken(): ?string
+    {
+        return $this->token;
+    }
+
+    public function setToken(?string $token): self
+    {
+        $this->token = $token;
 
         return $this;
     }

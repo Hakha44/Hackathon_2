@@ -4,7 +4,7 @@
 Hi {{ name }}! You're successfully registered.
 
 {# example, assuming you have a route named "login" #}
-To login, go to: <a href="{{ url('event_index') }}">Sondage.</a>.
+To login, go to: <a href="{{ url('sondage_show', {'slug': url}) }}">Sondage.</a>.
 
 Thanks!
 
