@@ -34,8 +34,8 @@ class UploadController extends AbstractController
             );
 //            } catch (CsvException $csvException) {
 //                $this->addFlash(
-//                    'danger',
-//                    $csvException->getMessage()
+//                    'succes',
+//                    'import reussi'
 //                );
 //            }
             return $this->redirectToRoute('participant_index');
