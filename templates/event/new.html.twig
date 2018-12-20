@@ -6,7 +6,12 @@
 
     <h1>Créer un nouvel Évènement</h1>
 
+    <div class="row">
+        <div class="col text-right">
+            <a class="btn button" href="{{ path('event_index') }}">Retour</a>
+        </div>
+    </div>
+
     {{ include('event/_form.html.twig') }}
 
-    <a href="{{ path('event_index') }}">Retour</a>
 {% endblock %}
