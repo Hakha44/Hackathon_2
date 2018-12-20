@@ -19,8 +19,8 @@
                 <td>{{ subservice.id }}</td>
                 <td>{{ subservice.name }}</td>
                 <td>
-                    <a href="{{ path('subservice_show', {'id': subservice.id}) }}">show</a>
-                    <a href="{{ path('subservice_edit', {'id': subservice.id}) }}">edit</a>
+                    <a href="{{ path('subservice_show', {'id': subservice.id}) }}" class="button">show</a>
+                    <a href="{{ path('subservice_edit', {'id': subservice.id}) }}" class="button">edit</a>
                 </td>
             </tr>
         {% else %}
