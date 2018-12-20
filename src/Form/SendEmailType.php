@@ -13,7 +13,7 @@ class SendEmailType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('field_name',EntityType::class, array(
+            ->add('formbuilder',EntityType::class, array(
                 'class' => FormBuilder::class,
                 'choice_label' => 'name',
 
