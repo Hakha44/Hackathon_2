@@ -106,7 +106,6 @@ html, body {
 }
 
 .buttonCreate {
-    float: right;
     display: inline-block;
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
