@@ -47,6 +47,7 @@ class ParticipantFixtures extends Fixture implements DependentFixtureInterface
             $phoneNumber = $faker->serviceNumber();
             $function = $faker->text(15);
             $quality = $faker->boolean(50);
+            $present = $faker->boolean(50);
             $email = strtolower($firstName . '.' . $lastName . '@' .$faker->safeEmailDomain());
             $email = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $email);
             $participant = new Participant();
@@ -57,7 +58,7 @@ class ParticipantFixtures extends Fixture implements DependentFixtureInterface
             $participant->setPhoneNumber($phoneNumber);
             $participant->setFunction($function);
             $participant->setQuality($quality);
-
+            $participant->setPresent($present);
             $manager->persist($participant);
             $participant->setEvent($this->getReference('event_' . rand(0,10)));
         }

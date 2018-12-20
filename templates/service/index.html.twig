@@ -5,6 +5,10 @@
 {% block body %}
     <h1>Service index</h1>
 
+    <div class="row justify-content-center">
+        <p><a href="{{ path('subservice_new') }}" class="buttonCreate"><i class="fas fa-marker"></i>Ajouter un service</a></p>
+    </div>
+
     <table class="table">
         <thead>
             <tr>
@@ -19,8 +23,8 @@
                 <td>{{ service.id }}</td>
                 <td>{{ service.name }}</td>
                 <td>
-                    <a href="{{ path('service_show', {'id': service.id}) }}">show</a>
-                    <a href="{{ path('service_edit', {'id': service.id}) }}">edit</a>
+                    <a href="{{ path('service_show', {'id': service.id}) }}" class="button">show</a>
+                    <a href="{{ path('service_edit', {'id': service.id}) }}" class="button">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +35,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('service_new') }}">Create new</a>
 {% endblock %}

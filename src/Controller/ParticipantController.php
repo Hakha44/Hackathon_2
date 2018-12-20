@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Participant;
 use App\Form\ParticipantType;
+use App\Form\UploadType;
 use App\Repository\ParticipantRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,11 +17,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class ParticipantController extends AbstractController
 {
     /**
-     * @Route("/", name="participant_index", methods={"GET"})
+     * @Route("/", name="participant_index", methods={"GET","POST"})
      */
     public function index(ParticipantRepository $participantRepository): Response
     {
-        return $this->render('participant/index.html.twig', ['participants' => $participantRepository->findAll()]);
+        $form = $this->createForm(UploadType::class);
+
+        return $this->render('participant/index.html.twig', [
+            'participants' => $participantRepository->findAll(),
+            'form'=> $form->createView(),
+            ]);
     }
 
     /**
