@@ -23,7 +23,9 @@ class UploadController extends AbstractController
         if ($formAddFormatEvent->isSubmitted() && $formAddFormatEvent->isValid()) {
             $dataset = $formAddFormatEvent->getData();
             $csvParticipants->setPath($dataset['csvFile']->getPathName());
+            $csvParticipants->setEvent($dataset['event']);
 //            try {
+
             $csvParticipants->validate();
             $csvParticipants->import();
             $this->addFlash(
