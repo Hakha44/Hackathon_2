@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1> Accueil Participant</h1>
-
+    {% include 'upload/index.html.twig' %}
     <table class="table">
         <thead>
             <tr>
@@ -40,6 +40,5 @@
         {% endfor %}
         </tbody>
     </table>
-
     <a href="{{ path('participant_new') }}">Créer un nouveau participant</a>
 {% endblock %}
