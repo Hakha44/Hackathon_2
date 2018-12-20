@@ -46,6 +46,11 @@ class Participant
      */
     private $quality;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $function;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -99,12 +104,12 @@ class Participant
         return $this;
     }
 
-    public function getPhoneNumber(): ?int
+    public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(int $phoneNumber): self
+    public function setPhoneNumber(string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
 
@@ -119,6 +124,18 @@ class Participant
     public function setQuality(bool $quality): self
     {
         $this->quality = $quality;
+
+        return $this;
+    }
+
+    public function getFunction(): ?string
+    {
+        return $this->function;
+    }
+
+    public function setFunction(string $function): self
+    {
+        $this->function = $function;
 
         return $this;
     }
