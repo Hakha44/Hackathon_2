@@ -1,17 +1,19 @@
 @font-face {
-    font-family: christmas;
-    src: url("../MerryChristmasFlake.ttf")format("truetype");
+    font-family: 'Amatic SC', cursive;
+    @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 }
 
 h1 {
-    font-family: christmas;
+    font-family: 'Amatic SC', cursive;
     font-size: 50pt;
 }
+
 .nav-link {
-    font-family: christmas;
+    font-family: 'Amatic SC', cursive;
     font-size: 24pt;
     letter-spacing: 2px;
 }
+
 th {
     font-size: 16pt;
 }
@@ -27,5 +29,5 @@ td {
 }
 
 select.form-control:not([size]):not([multiple]) {
-   height : auto;
+    height: auto;
 }
