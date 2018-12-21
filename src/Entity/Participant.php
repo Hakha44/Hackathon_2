@@ -69,15 +69,10 @@ class Participant
      */
     private $sondages;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Relation", mappedBy="participant")
-     */
-    private $relations;
 
     public function __construct()
     {
         $this->sondages = new ArrayCollection();
-        $this->relations = new ArrayCollection();
     }
 
 
@@ -215,37 +210,6 @@ class Participant
         if ($this->sondages->contains($sondage)) {
             $this->sondages->removeElement($sondage);
             $sondage->removeParticipant($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Relation[]
-     */
-    public function getRelations(): Collection
-    {
-        return $this->relations;
-    }
-
-    public function addRelation(Relation $relation): self
-    {
-        if (!$this->relations->contains($relation)) {
-            $this->relations[] = $relation;
-            $relation->setParticipant($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRelation(Relation $relation): self
-    {
-        if ($this->relations->contains($relation)) {
-            $this->relations->removeElement($relation);
-            // set the owning side to null (unless already changed)
-            if ($relation->getParticipant() === $this) {
-                $relation->setParticipant(null);
-            }
         }
 
         return $this;

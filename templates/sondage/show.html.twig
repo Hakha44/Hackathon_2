@@ -38,7 +38,7 @@
                 <p>Avez-vous été satisfait de cet atelier / évènement ?</p>
                 <input type="radio" name="satisfaction" value="0"> Déçu
                 <input type="radio" name="satisfaction" value="1"> Un peu déçu
-                <input type="radio" name="satisfaction" value="2"> Neutre
+                <input type="radio" name="satisfaction" value="2" checked > Neutre
                 <input type="radio" name="satisfaction" value="3"> Satisfait
                 <input type="radio" name="satisfaction" value="4"> Très satisfait
             </div>
@@ -47,17 +47,41 @@
         <div class="row">
             <div class="col col-10 my-3 mx-auto border p-3">
                 <p>Avez-vous eu des contacts ?</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-6 my-3 mx-auto border p-3">
-                <label>Type</label>
-                <select name="typecontact">
-                    <option value=""></option>
-                </select>
-            </div>
-            <div class="col col-6 my-3 mx-auto border p-3">
-                <p>Avez-vous eu des contacts ?</p>
+                <table>
+                    <tr><td>
+                            <select name="contact1">
+                                {% for type in typecontact %}
+                                <option value="{{ type.id }}">{{ type.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td>
+                            <input type="input" name="contactname1" value="" placeholder="societe"/>
+                        </td>
+                    </tr>
+                    <tr><td>
+                            <select name="contact2">
+                                {% for type in typecontact %}
+                                    <option value="{{ type.id }}">{{ type.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td>
+                            <input type="input" name="contactname2" value="" placeholder="societe"/>
+                        </td>
+                    </tr>
+                    <tr><td>
+                            <select name="contact3">
+                                {% for type in typecontact %}
+                                    <option value="{{ type.id }}">{{ type.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td>
+                            <input type="input" name="contactname3" value="" placeholder="societe"/>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
 

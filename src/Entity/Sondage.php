@@ -65,59 +65,7 @@ class Sondage
         return $this->id;
     }
 
-    /**
-     * @return Collection|Event[]
-     */
-    /*public function getEvent(): Collection
-    {
-        return $this->event;
-    }
-
-    public function addEvent(Event $event): self
-    {
-        if (!$this->event->contains($event)) {
-            $this->event[] = $event;
-        }
-
-        return $this;
-    }
-
-    public function removeEvent(Event $event): self
-    {
-        if ($this->event->contains($event)) {
-            $this->event->removeElement($event);
-        }
-
-        return $this;
-    }*/
-
-    /**
-     * @return Collection|Participant[]
-     */
-    /*public function getParticipant(): Collection
-    {
-        return $this->participant;
-    }
-
-    public function addParticipant(Participant $participant): self
-    {
-        if (!$this->participant->contains($participant)) {
-            $this->participant[] = $participant;
-        }
-
-        return $this;
-    }
-
-    public function removeParticipant(Participant $participant): self
-    {
-        if ($this->participant->contains($participant)) {
-            $this->participant->removeElement($participant);
-        }
-
-        return $this;
-    }*/
-
-    public function getFormulaire(): ?FormBuilder
+     public function getFormulaire(): ?FormBuilder
     {
         return $this->formulaire;
     }

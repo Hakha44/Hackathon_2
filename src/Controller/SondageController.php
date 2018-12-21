@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\ContactType;
 use App\Entity\Event;
 use App\Entity\FormBuilder;
 use App\Entity\Participant;
@@ -98,52 +99,24 @@ class SondageController extends AbstractController
 
         $participant = $this->getDoctrine()->getRepository(Participant::class)
             ->findOneBy(['id' => $sondage->getParticipant()],[]);
-        var_dump($request->request);
-        /*$form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            var_dump()
-        }*/
+        $typeContact = $this->getDoctrine()->getRepository(ContactType::class)->findAll();
 
-        //var_dump($formulaire);
-        return $this->render('sondage/show.html.twig', [
-            'sondage' => $sondage,
-            'formulaire' => $formulaire,
-            'participant' => $participant
-        ]);
-    }
+        $entityManager = $this->getDoctrine()->getManager();
 
-    /**
-     * @Route("/{id}/edit", name="sondage_edit", methods={"GET","POST"})
-     */
-    /*public function edit(Request $request, Sondage $sondage): Response
-    {
-        $form = $this->createForm(SondageType::class, $sondage);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('sondage_index', ['id' => $sondage->getId()]);
-        }
-
-        return $this->render('sondage/edit.html.twig', [
-            'sondage' => $sondage,
-            'form' => $form->createView(),
-        ]);
-    }*/
-
-    /**
-     * @Route("/{id}", name="sondage_delete", methods={"DELETE"})
-     */
-    /*public function delete(Request $request, Sondage $sondage): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$sondage->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($sondage);
+        if (!empty($request->request->all())) {
+            $response = $request->request->all();
+            $sondage->setSatisfaction($response['satisfaction']);
+            $sondage->setResponse(serialize($response));
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('sondage_index');
-    }*/
+        return $this->render('sondage/show.html.twig', [
+            'sondage' => $sondage,
+            'formulaire' => $formulaire,
+            'participant' => $participant,
+            'typecontact' => $typeContact
+        ]);
+    }
+
 }
