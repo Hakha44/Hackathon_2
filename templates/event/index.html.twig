@@ -26,7 +26,7 @@
             {% for event in events %}
                 <tr class="text-center">
                     <td>{{ event.name }}</td>
-                    <td>{{ event.date ? event.date|date('d-m-Y') : '' }}</td>
+                    <td>{{ event.date ? event.date|date('d/m/Y') : '' }}</td>
                     <td class="btn-group">
                         <a href="{{ path('sondage_new', {'id': event.id}) }}" class="button"><i class="fas fa-envelope"></i></a>
                         <a href="{{ path('event_show', {'id': event.id}) }}" class="button"><i class="fas fa-list"></i></a>

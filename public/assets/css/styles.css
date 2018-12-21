@@ -3,6 +3,10 @@
     src: url("../MerryChristmasFlake.ttf")format("truetype");
 }
 
+body {
+    font-size: 16pt;
+}
+
 h1 {
     font-family: christmas;
     font-size: 50pt;

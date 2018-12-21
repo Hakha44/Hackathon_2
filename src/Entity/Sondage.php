@@ -57,7 +57,7 @@ class Sondage
     public function __construct()
     {
         //$this->event = new ArrayCollection();
-        $this->participant = new ArrayCollection();
+        //$this->participant = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -94,7 +94,7 @@ class Sondage
     /**
      * @return Collection|Participant[]
      */
-    public function getParticipant(): Collection
+    /*public function getParticipant(): Collection
     {
         return $this->participant;
     }
@@ -115,7 +115,7 @@ class Sondage
         }
 
         return $this;
-    }
+    }*/
 
     public function getFormulaire(): ?FormBuilder
     {
@@ -189,5 +189,15 @@ class Sondage
         $this->token = $token;
 
         return $this;
+    }
+
+    public function getEvent(): ?Event
+    {
+        return $this->event;
+    }
+
+    public function getParticipant(): ?Participant
+    {
+        return $this->participant;
     }
 }

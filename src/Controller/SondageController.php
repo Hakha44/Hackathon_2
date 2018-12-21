@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Event;
 use App\Entity\FormBuilder;
+use App\Entity\Participant;
 use App\Entity\Sondage;
 use App\Form\SondageType;
 use App\Repository\SondageRepository;
@@ -85,21 +86,30 @@ class SondageController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="sondage_show", methods={"GET"})
+     * @Route("/{slug}", name="sondage_show", methods={"GET","POST"})
      */
-    public function show(string $slug): Response
+    public function show(string $slug, Request $request): Response
     {
-//        $sondage = $sondageRepository->findBy([],['token' => $slug]);
-
         $sondage = $this->getDoctrine()->getRepository(Sondage::class)
             ->findOneBy(['token' => $slug], []);
 
         $formulaire = $this->getDoctrine()->getRepository(FormBuilder::class)
             ->findOneBy(['id' => $sondage->getFormulaire()],[]);
-        var_dump($formulaire);
+
+        $participant = $this->getDoctrine()->getRepository(Participant::class)
+            ->findOneBy(['id' => $sondage->getParticipant()],[]);
+        var_dump($request->request);
+        /*$form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            var_dump()
+        }*/
+
+        //var_dump($formulaire);
         return $this->render('sondage/show.html.twig', [
             'sondage' => $sondage,
             'formulaire' => $formulaire,
+            'participant' => $participant
         ]);
     }
 
