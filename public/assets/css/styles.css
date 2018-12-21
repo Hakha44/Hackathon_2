@@ -3,6 +3,10 @@
     @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 }
 
+body {
+    font-size: 16pt;
+}
+
 h1 {
     font-family: 'Amatic SC', cursive;
     font-size: 50pt;

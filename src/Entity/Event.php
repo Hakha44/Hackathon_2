@@ -39,9 +39,15 @@ class Event
      */
     private $participants;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Sondage", mappedBy="event", cascade={"persist"})
+     */
+    private $sondages;
+
     public function __construct()
     {
         $this->participants = new ArrayCollection();
+        $this->sondages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -111,6 +117,34 @@ class Event
             if ($participant->getEvent() === $this) {
                 $participant->setEvent(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Sondage[]
+     */
+    public function getSondages(): Collection
+    {
+        return $this->sondages;
+    }
+
+    public function addSondage(Sondage $sondage): self
+    {
+        if (!$this->sondages->contains($sondage)) {
+            $this->sondages[] = $sondage;
+            $sondage->addEvent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSondage(Sondage $sondage): self
+    {
+        if ($this->sondages->contains($sondage)) {
+            $this->sondages->removeElement($sondage);
+            $sondage->removeEvent($this);
         }
 
         return $this;
