@@ -16,17 +16,15 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>HeaderForm</th>
-                <th>Paragraph</th>
-                <th>actions</th>
+                <th>Nom court</th>
+                <th>Titre</th>
+                <th>Message</th>
+                <th>-</th>
             </tr>
             </thead>
             <tbody>
             {% for form_builder in form_builders %}
                 <tr class="text-center">
-                    <td>{{ form_builder.id }}</td>
                     <td>{{ form_builder.name }}</td>
                     <td>{{ form_builder.headerForm }}</td>
                     <td>{{ form_builder.paragraph }}</td>
@@ -37,7 +35,7 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5">no records found</td>
+                    <td colspan="5">Aucun formulaire</td>
                 </tr>
             {% endfor %}
             </tbody>

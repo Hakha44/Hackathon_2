@@ -37,6 +37,8 @@ class FormBuilderController extends AbstractController
             $entityManager->persist($formBuilder);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Le formulaire a été ajouté !');
+
             return $this->redirectToRoute('form_builder_index');
         }
 

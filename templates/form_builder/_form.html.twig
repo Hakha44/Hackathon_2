@@ -1,9 +1,9 @@
 {{ form_start(form, {'attr': {'id': 'form_builder'}}) }}
-    {{ form_row(form.name) }}
+    {{ form_row(form.name, {'label': 'Nom court'}) }}
 
-    {{ form_row(form.headerForm) }}
+    {{ form_row(form.headerForm, {'label': 'Titre'}) }}
 
-    {{ form_row(form.paragraph) }}
+    {{ form_row(form.paragraph, {'label': 'Introduction'}) }}
 
 <div style="display: none;">
     {{ form_row(form.formbuilderhtml) }}
