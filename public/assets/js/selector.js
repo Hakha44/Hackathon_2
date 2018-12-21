@@ -10,25 +10,25 @@ $('.switcher').click(function(){
     return false;
 });
 
-jQuery(".orange-bg").on('click',function(){
+jQuery(".noel-orange-bg").on('click',function(){
     jQuery(".logo-header img").attr("src", "images/logo.png");
     jQuery(".footer-logo .text-center img").attr("src", "images/logo.png");
     return false;
 });
 
-jQuery(".strong-blue-bg").on('click',function(){
+jQuery(".eather-blue-bg").on('click',function(){
     jQuery(".logo-header img").attr("src", "images/logo2.png");
     jQuery(".footer-logo .text-center img").attr("src", "images/logo2.png");
     return false;
 });
 
-jQuery(".moderate-green-bg").on('click',function(){
+jQuery(".summer-green-bg").on('click',function(){
     jQuery(".logo-header img").attr("src", "images/logo3.png");
     jQuery(".footer-logo .text-center img").attr("src", "images/logo3.png");
     return false;
 });
 
-jQuery(".vivid-yellow-bg").on('click',function(){
+jQuery(".default-yellow-bg").on('click',function(){
     jQuery(".logo-header img").attr("src", "images/logo4.png");
     jQuery(".footer-logo .text-center img").attr("src", "images/logo4.png");
     return false;
