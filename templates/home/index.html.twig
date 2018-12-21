@@ -6,5 +6,6 @@
 <div class="example-wrapper">
     <h1>Bienvenue sur le site de la Cellule OPérationnelle du Lab'O</h1>
 </div>
-    {% include './themeSelector.html.twig' %}
+    <a href="{{ path('theme',{'theme':'classic'}) }}">classic</a>
+    <a href="{{ path('theme',{'theme':'snow'}) }}">snow</a>
 {% endblock %}

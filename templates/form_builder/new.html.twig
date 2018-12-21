@@ -6,7 +6,7 @@
           crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/assets/css/switch.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/snow.css">
+    <link id="changeable-colors" rel="stylesheet" href="{{ asset('assets/css/' ~ app.session.get('theme') ?? 'classic' ~'.css') }}">
     <link rel="stylesheet" href="/assets/css/header_navBar.css">
 {% endblock %}
 

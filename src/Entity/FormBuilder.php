@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +37,16 @@ class FormBuilder
      * @ORM\Column(type="text")
      */
     private $formbuilderhtml;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Sondage", mappedBy="formulaire")
+     */
+    private $sondages;
+
+    public function __construct()
+    {
+        $this->sondages = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -85,6 +97,37 @@ class FormBuilder
     public function setFormbuilderhtml(string $formbuilderhtml): self
     {
         $this->formbuilderhtml = $formbuilderhtml;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Sondage[]
+     */
+    public function getSondages(): Collection
+    {
+        return $this->sondages;
+    }
+
+    public function addSondage(Sondage $sondage): self
+    {
+        if (!$this->sondages->contains($sondage)) {
+            $this->sondages[] = $sondage;
+            $sondage->setFormulaire($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSondage(Sondage $sondage): self
+    {
+        if ($this->sondages->contains($sondage)) {
+            $this->sondages->removeElement($sondage);
+            // set the owning side to null (unless already changed)
+            if ($sondage->getFormulaire() === $this) {
+                $sondage->setFormulaire(null);
+            }
+        }
 
         return $this;
     }
