@@ -3,8 +3,12 @@
 {% block title %}Bienvenue !{% endblock %}
 
 {% block body %}
-<div class="example-wrapper">
-    <h1>Bienvenue sur le site de la Cellule OPérationnelle du Lab'O</h1>
-</div>
-    {% include './themeSelector.html.twig' %}
+
+    <h1 class="text-center" style="margin-left: 5px">Bienvenue sur le site de la Cellule Opérationnelle du Lab'O</h1>
+
+    <p><a href="{{ path('theme',{'theme':'classic'}) }}" class="btn btn-lg btn-primary btn-block"><i class="far fa-star"></i> Classic <i class="far fa-star"></i></a></p>
+    <p><a href="{{ path('theme',{'theme':'snow'}) }}" class="btn btn-lg btn-primary btn-block"><i class="fas fa-tree"></i> Noel <i class="fas fa-tree"></i></a></p>
+    <p><a href="{{ path('theme',{'theme':'easter'}) }}" class="btn btn-lg btn-primary btn-block"><i class="far fa-bell"></i> Paques <i class="far fa-bell"></i></a></p>
+    <p><a href="{{ path('theme',{'theme':'summer'}) }}" class="btn btn-lg btn-primary btn-block"><i class="far fa-sun"></i> Eté <i class="far fa-sun"></i></a></p>
+
 {% endblock %}
