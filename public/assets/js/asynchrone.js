@@ -29,5 +29,4 @@ for (let i = 0; i < checkboxes.length; i++){
     }
 }
 function setSuccess(message){
-    alert(message);
 }
