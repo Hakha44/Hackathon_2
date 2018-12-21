@@ -15,7 +15,9 @@ IE9+, Chrome, Firefox, Opera
 P.S. через border-image не прокатило: не поддерживается ИЕ, в Опере частичная поддержка.
 
 */
-
+header {
+    background-image: url("../images/noel.jpg");
+}
 
 .button {
     display: inline-block;

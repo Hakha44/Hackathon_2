@@ -175,6 +175,7 @@ class Participant
         $this->present = $present;
         return $this;
     }
+
     public function getEvent(): ?Event
     {
         return $this->event;
@@ -215,3 +216,4 @@ class Participant
         return $this;
     }
 }
+
