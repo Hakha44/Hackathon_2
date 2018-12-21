@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -61,6 +63,17 @@ class Participant
      * @ORM\JoinColumn(nullable=false)
      */
     private $event;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Sondage", mappedBy="participant")
+     */
+    private $sondages;
+
+
+    public function __construct()
+    {
+        $this->sondages = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -171,6 +184,34 @@ class Participant
     public function setEvent(?Event $event): self
     {
         $this->event = $event;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Sondage[]
+     */
+    public function getSondages(): Collection
+    {
+        return $this->sondages;
+    }
+
+    public function addSondage(Sondage $sondage): self
+    {
+        if (!$this->sondages->contains($sondage)) {
+            $this->sondages[] = $sondage;
+            $sondage->addParticipant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSondage(Sondage $sondage): self
+    {
+        if ($this->sondages->contains($sondage)) {
+            $this->sondages->removeElement($sondage);
+            $sondage->removeParticipant($this);
+        }
 
         return $this;
     }
