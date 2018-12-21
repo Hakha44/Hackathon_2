@@ -44,10 +44,16 @@ class Event
      */
     private $sondages;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Relation", mappedBy="event")
+     */
+    private $relations;
+
     public function __construct()
     {
         $this->participants = new ArrayCollection();
         $this->sondages = new ArrayCollection();
+        $this->relations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -145,6 +151,37 @@ class Event
         if ($this->sondages->contains($sondage)) {
             $this->sondages->removeElement($sondage);
             $sondage->removeEvent($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Relation[]
+     */
+    public function getRelations(): Collection
+    {
+        return $this->relations;
+    }
+
+    public function addRelation(Relation $relation): self
+    {
+        if (!$this->relations->contains($relation)) {
+            $this->relations[] = $relation;
+            $relation->setEvent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRelation(Relation $relation): self
+    {
+        if ($this->relations->contains($relation)) {
+            $this->relations->removeElement($relation);
+            // set the owning side to null (unless already changed)
+            if ($relation->getEvent() === $this) {
+                $relation->setEvent(null);
+            }
         }
 
         return $this;
