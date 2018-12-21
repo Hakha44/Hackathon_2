@@ -24,11 +24,13 @@
             </thead>
             <tbody>
             {% for event in events %}
-                <tr class="text-center">
-                    <td>{{ event.name }}</td>
-                    <td>{{ event.date ? event.date|date('d/m/Y') : '' }}</td>
-                    <td class="btn-group">
-                        <a href="{{ path('sondage_new', {'id': event.id}) }}" class="button"><i class="fas fa-envelope"></i></a>
+                <tr >
+                    <td class="text-center">{{ event.name }}</td>
+                    <td class="text-center">{{ event.date ? event.date|date('d/m/Y') : '' }}</td>
+                    <td class="btn-group text-left">
+                        {% if date(event.date) < date('-2days') %}
+                            <a href="{{ path('sondage_new', {'id': event.id}) }}" class="button"><i class="fas fa-envelope"></i></a>
+                        {% endif %}
                         <a href="{{ path('event_show', {'id': event.id}) }}" class="button"><i class="fas fa-list"></i></a>
                         <a href="{{ path('event_edit', {'id': event.id}) }}" class="button"><i
                                     class="fas fa-user-edit"></i></a>
