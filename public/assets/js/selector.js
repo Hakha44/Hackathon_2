@@ -4,32 +4,50 @@ $( "#color-panel .panel-button" ).click(function(){
     return false;
 });
 // Color Skins
-$('.switcher').click(function(){
+$('#snow').click(function(){
     var title = jQuery(this).attr('title');
-    jQuery('#changeable-colors').attr('href', 'css/colors/' + title + '.css');
+    jQuery('#changeable-colors').attr('href', '/assets/css/' + title + '.css');
+    jQuery("#changeable-theme").attr("src", "/assets/js/" + title + ".js");
     return false;
 });
 
-jQuery(".noel-orange-bg").on('click',function(){
-    jQuery(".logo-header img").attr("src", "images/logo.png");
-    jQuery(".footer-logo .text-center img").attr("src", "images/logo.png");
+$('#summer').click(function(){
+    var title = jQuery(this).attr('title');
+    jQuery('#changeable-colors').attr('href', '/assets/css/' + title + '.css');
+    jQuery("#changeable-theme").attr("src", "/assets/js/" + title + ".js");
     return false;
 });
 
-jQuery(".eather-blue-bg").on('click',function(){
-    jQuery(".logo-header img").attr("src", "images/logo2.png");
-    jQuery(".footer-logo .text-center img").attr("src", "images/logo2.png");
+$('#default').click(function(){
+    var title = jQuery(this).attr('title');
+    jQuery('#changeable-colors').attr('href', '/assets/css/' + title + '.css');
+    jQuery("#changeable-theme").attr("src", "/assets/js/" + title + ".js");
     return false;
 });
 
-jQuery(".summer-green-bg").on('click',function(){
-    jQuery(".logo-header img").attr("src", "images/logo3.png");
-    jQuery(".footer-logo .text-center img").attr("src", "images/logo3.png");
+$('#earthe').click(function(){
+    var title = jQuery(this).attr('title');
+    jQuery('#changeable-colors').attr('href', '/assets/css/' + title + '.css');
+    jQuery("#changeable-theme").attr("src", "/assets/js/" + title + ".js");
     return false;
 });
 
-jQuery(".default-yellow-bg").on('click',function(){
-    jQuery(".logo-header img").attr("src", "images/logo4.png");
-    jQuery(".footer-logo .text-center img").attr("src", "images/logo4.png");
-    return false;
-});
+// jQuery(".noel-bg").on('click',function(){
+//     jQuery("#changeable-theme").attr("src", "js/snow.js");
+//     return false;
+// });
+//
+// jQuery(".eather-bg").on('click',function(){
+//     jQuery("#changeable-theme").attr("src", "js/eather.js");
+//     return false;
+// });
+//
+// jQuery(".summer-bg").on('click',function(){
+//     jQuery("#changeable-theme").attr("src", "js/summer.js");
+//     return false;
+// });
+//
+// jQuery(".default-bg").on('click',function(){
+//     jQuery("#changeable-theme").attr("src", "js/default.js");
+//     return false;
+// });
